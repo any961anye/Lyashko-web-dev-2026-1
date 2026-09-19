@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    .label {
+    font-weight: bold;
+    display: block;
+    color: black;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.block {
+    margin-bottom: 10px;
+}
+.color {
+    background-color: #3844eb;
+    color: white;
+    margin: 2px;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.head{
+    color: black;
+}
+
+.container{
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+    </style>
+
+
+</head>
+<body>
+    <header>
+    <div class="container">
+        <h1>BookPoint</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="login.html">Войти</a>
+            <a href="order.html">Собрать заказ</a>
+            <a href="feedback.html">Обратная связь</a>
+            <a href="#footer">Контакты</a>
+        </nav>
+    </div>
+</header>
+    <main class="container">
+    <form action="https://httpbin.org/post" method="POST">
+        <h1 class="head">Форма обратной связи</h1>
+    
+    <div>
+        <label class="label" for="fio">ФИО</label>
+        <input type="text" id="fio" name="fio">
+    </div>
+
+    <div>
+        <label class="label" for="email">Адрес электронной почты</label>
+        <input type="text" id="email" name="email" placeholder="Введите Email">
+    </div>
+
+    <div class="block">
+     <label class="label">Откуда вы узнали о нас?</label> 
+        <input type="radio" id="friends" name="radio" value="friends">
+        <label for="friends">Рассказали друзья</label> 
+        
+        <input type="radio" id="adv" name="radio" value="ads">
+        <label for="adv">Реклама в интернете</label>
+    </div>
+    <div>
+        <label class="label" for="category">Категория обращения:</label>
+        <select name="category" id="category">
+            <option value="1">Жалоба</option>
+            <option value="2">Предложение</option>
+        </select>
+    </div>
+
+    <div>
+        <label class="label" for="content">Текст сообщения:</label>
+        <textarea name="content" id="content" cols="50" rows="10"></textarea>
+    </div>
+
+        <div>
+        <div class="block">
+            <label class="label" for="file">Вложение</label>
+            <input type="file" id="file" name="file">
+        </div>
+        <div class="block">
+            <input type="checkbox" id="checkbox" name="checkbox" value="yes">
+            <label for="checkbox">Даю согласие на обработку персональных данных</label>
+        </div>
+    </div>
+       <button class="color" type="submit"> Отправить </button>
+    </form>
+    </main>
+
+    <footer id="footer">
+     <div class="container">
+        <p>Позвонить нам: <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+     </div>
+</footer>
+
+</body>
+</html>
