@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собрать заказ — BookPoint</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="print.css" media="print">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>BookPoint</h1>
+            <nav>
+            <a href="index.html" >Главная</a>
+            <a href="login.html" >Войти </a>
+            <a href="order.html" class="active">Собрать заказ</a>
+            <a href="feedback.html" >Обратная связь</a>
+            <a href="#footer">Контакты </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Романы</h2>
+            <div class="books">
+                <div class="book-card">
+                    <img src="https://imo10.labirint.ru/books/944380/cover.jpg/242-0" alt="Обложка книги «Мастер и Маргарита»">
+                    <p class="price">750 ₽</p>
+                    <p class="title">Мастер и Маргарита</p>
+                    <p class="pages">512 стр.</p>
+                    <button>Добавить</button>
+                </div>
+                <div class="book-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTctNNdSeVrOEtxKq1pR7PPm8dujsE83kNhvwiM8Q7M6w&s=10" alt="Обложка книги «1984»">
+                    <p class="price">620 ₽</p>
+                    <p class="title">1984</p>
+                    <p class="pages">320 стр.</p>
+                    <button>Добавить</button>
+                </div>
+                <div class="book-card">
+                    <img src="https://imo10.labirint.ru/books/546838/cover.jpg/484-0" alt="Обложка книги «Преступление и наказание»">
+                    <p class="price">580 ₽</p>
+                    <p class="title">Преступление и наказание</p>
+                    <p class="pages">576 стр.</p>
+                    <button>Добавить</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Фантастика</h2>
+            <div class="books">
+                <div class="book-card">
+                    <img src="https://imo10.labirint.ru/books/424618/cover.jpg/484-0" alt="Обложка книги «Гарри Поттер и философский камень»">
+                    <p class="price">880 ₽</p>
+                    <p class="title">Гарри Поттер и философский камень</p>
+                    <p class="pages">432 стр.</p>
+                    <button>Добавить</button>
+                </div>
+                <div class="book-card">
+                    <img src="https://imo10.labirint.ru/books/815471/cover.jpg/484-0" alt="Обложка книги «Дюна»">
+                    <p class="price">1110 ₽</p>
+                    <p class="title">Дюна</p>
+                    <p class="pages">704 стр.</p>
+                    <button>Добавить</button>
+                </div>
+                <div class="book-card">
+                    <img src="https://imo10.labirint.ru/books/453008/cover.jpg/484-0" alt="Обложка книги «Бегущий в лабиринте»">
+                    <p class="price">950 ₽</p>
+                    <p class="title">Бегущий в лабиринте</p>
+                    <p class="pages">448 стр.</p>
+                    <button>Добавить</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Детективы</h2>
+            <div class="books">
+                <div class="book-card">
+                    <img src="https://imo10.labirint.ru/books/807354/cover.jpg/1000-0" alt="Обложка книги «Шерлок»">
+                    <p class="price">1500 ₽</p>
+                    <p class="title">Шерлок</p>
+                    <p class="pages">272 стр.</p>
+                    <button>Добавить</button>
+                </div>
+                <div class="book-card">
+                    <img src="https://imo10.labirint.ru/books/920472/cover.jpg/484-0" alt="Обложка книги «Остров проклятых»">
+                    <p class="price">460 ₽</p>
+                    <p class="title">Остров проклятых</p>
+                    <p class="pages">352 стр.</p>
+                    <button>Добавить</button>
+                </div>
+                <div class="book-card">
+                    <img src="https://imo10.labirint.ru/books/707251/cover.jpg/484-0" alt="Обложка книги «Десять негритят»">
+                    <p class="price">363 ₽</p>
+                    <p class="title">Десять негритят</p>
+                    <p class="pages">288 стр.</p>
+                    <button>Добавить</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="center">Сделать заказ</h2>
+            <form action="https://httpbin.org/post" method="POST" class="order-form">
+                <div class="order-columns">
+                    <div class="order-column">
+                        <h3>Ваш заказ</h3>
+
+                        <label for="roman">Роман</label>
+                        <select id="roman" name="roman">
+                            <option value="">-- Выберите книгу --</option>
+                            <option value="1">Мастер и Маргарита</option>
+                            <option value="2">1984</option>
+                            <option value="3">Преступление и наказание</option>
+                        </select>
+
+                        <label for="fantasy">Фантастика</label>
+                        <select id="fantasy" name="fantasy">
+                            <option value="">-- Выберите книгу --</option>
+                            <option value="1">Дюна</option>
+                            <option value="2">Гарри Поттер</option>
+                            <option value="3">Бегущий в лабиринте</option>
+                        </select>
+
+                        <label for="detective">Детектив</label>
+                        <select id="detective" name="detective">
+                            <option value="">-- Выберите книгу --</option>
+                            <option value="1">Шерлок</option>
+                            <option value="2">Остров проклятых</option>
+                            <option value="3">Десять негритят</option>
+                        </select>
+
+                        <label for="comments">Комментарии к заказу</label>
+                        <textarea id="comments" name="comments" rows="5"></textarea>
+                    </div>
+
+                    <div class="order-column">
+                        <h3>Ваши данные</h3>
+
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name">
+
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email">
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="subscribe" value="yes">
+                            Получать информацию о скидках и акциях
+                        </label>
+
+                        <label for="phone">Номер телефона</label>
+                        <input type="tel" id="phone" name="phone">
+
+                        <label for="address">Адрес доставки</label>
+                        <input type="text" id="address" name="address">
+                        <p class="hint">Доставка осуществляется только по Москве</p>
+
+                        <fieldset>
+                            <legend>Время доставки:</legend>
+                            <label>
+                                <input type="radio" name="time" value="asap">
+                                Как можно скорее
+                            </label>
+                            <label>
+                                <input type="radio" name="time" value="exact">
+                                К указанному времени
+                            </label>
+                        </fieldset>
+
+                        <label for="time">Укажите время доставки</label>
+                        <input type="time" id="time" name="time">
+                        <p class="hint">Доступное время доставки с 7:00 до 23:00</p>
+
+                        <div class="form-buttons">
+                            <button type="reset">Сбросить</button>
+                            <button type="submit">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <p>Позвонить нам: <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+        </div>
+    </footer>
+</body>
+</html>
