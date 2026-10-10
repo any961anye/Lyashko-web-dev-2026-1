@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собрать заказ — BookPoint</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>BookPoint</h1>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="login.html">Войти</a>
+                <a href="order.html" class="active">Собрать заказ</a>
+                <a href="feedback.html">Обратная связь</a>
+                <a href="#footer">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Романы</h2>
+            <div class="books" data-category="roman"></div>
+        </section>
+
+        <section>
+            <h2>Фантастика</h2>
+            <div class="books" data-category="fantasy"></div>
+        </section>
+
+        <section>
+            <h2>Детективы</h2>
+            <div class="books" data-category="detective"></div>
+        </section>
+
+        <section>
+            <h2 class="center">Сделать заказ</h2>
+            <form action="https://httpbin.org/post" method="POST" class="order-form">
+                <div class="order-columns">
+                    <div class="order-column">
+                        <h3>Ваш заказ</h3>
+
+                        <p id="empty-message">Ничего не выбрано</p>
+
+                        <div id="roman-block" hidden>
+                            <p class="category-title">Роман</p>
+                            <p id="roman-output">Книга не выбрана</p>
+                            <input type="hidden" id="roman-input" name="roman" value="">
+                        </div>
+
+                        <div id="fantasy-block" hidden>
+                            <p class="category-title">Фантастика</p>
+                            <p id="fantasy-output">Книга не выбрана</p>
+                            <input type="hidden" id="fantasy-input" name="fantasy" value="">
+                        </div>
+
+                        <div id="detective-block" hidden>
+                            <p class="category-title">Детектив</p>
+                            <p id="detective-output">Книга не выбрана</p>
+                            <input type="hidden" id="detective-input" name="detective" value="">
+                        </div>
+
+                        <div id="total-output" class="total" hidden></div>
+
+                        <label for="comments">Комментарии к заказу</label>
+                        <textarea id="comments" name="comments" rows="5"></textarea>
+                    </div>
+
+                    <div class="order-column">
+                        <h3>Ваши данные</h3>
+
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name">
+
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email">
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="subscribe" value="yes">
+                            Получать информацию о скидках и акциях
+                        </label>
+
+                        <label for="phone">Номер телефона</label>
+                        <input type="tel" id="phone" name="phone">
+
+                        <label for="address">Адрес доставки</label>
+                        <input type="text" id="address" name="address">
+                        <p class="hint">Доставка осуществляется только по Москве</p>
+
+                        <fieldset>
+                            <legend>Время доставки:</legend>
+                            <label>
+                                <input type="radio" name="time" value="asap">
+                                Как можно скорее
+                            </label>
+                            <label>
+                                <input type="radio" name="time" value="exact">
+                                К указанному времени
+                            </label>
+                        </fieldset>
+
+                        <label for="time">Укажите время доставки</label>
+                        <input type="time" id="time" name="time">
+                        <p class="hint">Доступное время доставки с 7:00 до 23:00</p>
+
+                        <div class="form-buttons">
+                            <button type="reset">Сбросить</button>
+                            <button type="submit">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <p>Позвонить нам: <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+        </div>
+    </footer>
+
+    <template id="book-template">
+    <div class="book-card">
+        <img src="" alt="">
+        <p class="price"></p>
+        <p class="title"></p>
+        <p class="pages"></p>
+        <button type="button">Добавить</button>
+    </div>
+</template>
+
+    <script src="books.js"></script>
+    <script src="render.js"></script>
+    <script src="order.js"></script>
+</body>
+</html>
