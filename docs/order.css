@@ -16,11 +16,13 @@
     cursor: pointer;
 }
 
-.book-card:hover {
+.book-card:hover,
+.book-card.selected {
     border: 2px solid tomato;
 }
 
-.book-card:hover button {
+.book-card:hover button,
+.book-card.selected button {
     background-color: tomato;
     color: white;
 }
@@ -62,6 +64,19 @@
 
 .center {
     text-align: center;
+}
+
+.category-title {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: tomato;
 }
 
 .order-form {
@@ -209,4 +224,8 @@ fieldset label {
     table {
         font-size: 12px;
     }
+}
+
+[hidden] {
+    display: none !important;
 }
