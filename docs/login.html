@@ -2,6 +2,8 @@
 <html lang="ru">
 <head>
     <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="print.css" media="print">
+
     <style>
      *{
             font-family: 'Roboto', sans-serif;
@@ -10,24 +12,24 @@
             box-sizing: border-box;
     }
     .label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-size: 18px;
+    font-weight: 450;
+    margin-right: 10px;
+    font-size: 24px;
 }
 .block {
     margin-bottom:  10px;
 }
 .color {
     width: 100%;
-    background-color: #840b27;
+    background-color: tomato;
     color: white ;
     font-size: 18px;
     letter-spacing: 1px;   
+    margin-top: 10px;
   
 }
 .login-page {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBHQ5XSRcsiElmKrMdMtCxAGTDIVbga6qPzUg78pDiUR2tZqm2boFqQJ6s&s=10);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFFgqWPMLL6rTD8KG04NZ7FmuRXl4r0JUwCCRg2VO3OT4dBXtBq5-RB_c&s=10);
     background-size: cover;           
     background-position: center;      
     background-repeat: no-repeat; 
@@ -68,15 +70,17 @@
 
 <body>
     <header>
-    <div>
+    <div class="container">
+        <h1>BookPoint</h1>
         <nav>
-                    <a href="index.html">Главная</a>
-                    <a href="login.html">Войти</a>
-                    <a href="feedback.html">Обратная связь</a>
-                    <a href="#footer">Контакты</a>
-                </nav>
+            <a href="index.html" >Главная</a>
+            <a href="login.html" class="active" >Войти </a>
+            <a href="order.html" >Собрать заказ</a>
+            <a href="feedback.html" >Обратная связь</a>
+            <a href="#footer">Контакты </a>
+        </nav>
     </div>
-    </header>
+</header>
     <main class="login-page">
     <div class="login-wrapper">
         <form action="https://httpbin.org/post" method="POST" class="login-form">
