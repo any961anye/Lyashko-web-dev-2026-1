@@ -29,10 +29,12 @@
 
 .book-card img {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    height: 300px;         
+    object-fit: contain;    
     border-radius: 35px;
+    background-color: #f9f9f9;
 }
+
 
 .price {
     font-size: 24px;
@@ -59,8 +61,40 @@
     border: none;
     font-size: 16px;
     font-weight: 500;
-    transition: background-color 0.3s;
+    transition: all 0.3s;  
 }
+
+
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s;
+}
+
+.filters button:hover {
+    border-color: tomato;
+}
+
+.filters button.active {
+    background-color: tomato;
+    color: white;
+    border-color: tomato;
+}
+
+
 
 .center {
     text-align: center;
