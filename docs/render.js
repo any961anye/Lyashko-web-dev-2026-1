@@ -9,7 +9,9 @@ books.forEach(book => {
 
     const card = template.content.cloneNode(true);
 
-    card.querySelector(".book-card").dataset.book = book.keyword;
+    const cardEl = card.querySelector(".book-card");
+    cardEl.dataset.book = book.keyword;
+    cardEl.dataset.kind = book.kind;
 
     const img = card.querySelector("img");
     img.src = book.image;
