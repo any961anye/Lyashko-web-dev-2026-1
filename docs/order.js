@@ -3,7 +3,9 @@
 const selected = {
     roman: null,
     fantasy: null,
-    detective: null
+    detective: null,
+    children: null,
+    science: null
 };
 
 function updateOrder() {
@@ -57,13 +59,37 @@ buttons.forEach(button => {
 updateOrder();
 
 document.querySelector(".order-form").addEventListener("reset", () => {
-
     for (const category in selected) {
         selected[category] = null;
     }
-   
+
     document.querySelectorAll(".book-card.selected")
         .forEach(card => card.classList.remove("selected"));
 
     updateOrder();
 });
+
+const filterButtons = document.querySelectorAll(".filters button");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const section = button.closest("section");
+        const kind = button.dataset.kind;
+        const cards = section.querySelectorAll(".book-card");
+        const wasActive = button.classList.contains("active");
+
+        section.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+
+        if (wasActive) {
+            cards.forEach(card => card.hidden = false);
+            return;
+        }
+
+        button.classList.add("active");
+
+        cards.forEach(card => {
+            card.hidden = card.dataset.kind !== kind;
+        });
+    });
+});
+
