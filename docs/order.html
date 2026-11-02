@@ -25,17 +25,52 @@
     <main>
         <section>
             <h2>Романы</h2>
+            <div class="filters">
+                <button data-kind="classic">Классика</button>
+                <button data-kind="modern">Современное</button>
+                <button data-kind="historical">Историческое</button>
+            </div>
             <div class="books" data-category="roman"></div>
         </section>
 
         <section>
             <h2>Фантастика</h2>
+            <div class="filters">
+                <button data-kind="magic">Магия</button>
+                <button data-kind="space">Космос</button>
+                <button data-kind="dystopia">Антиутопия</button>
+            </div>
             <div class="books" data-category="fantasy"></div>
         </section>
 
         <section>
             <h2>Детективы</h2>
+            <div class="filters">
+                <button data-kind="classic">Классический</button>
+                <button data-kind="thriller">Триллер</button>
+                <button data-kind="psycho">Психологический</button>
+            </div>
             <div class="books" data-category="detective"></div>
+        </section>
+
+        <section>
+            <h2>Детские книги</h2>
+            <div class="filters">
+                <button data-kind="tale">Сказки</button>
+                <button data-kind="story">Рассказы</button>
+                <button data-kind="poem">Стихи</button>
+            </div>
+            <div class="books" data-category="children"></div>
+        </section>
+
+        <section>
+            <h2>Научпоп</h2>
+            <div class="filters">
+                <button data-kind="physics">Физика</button>
+                <button data-kind="biology">Биология</button>
+                <button data-kind="history">История</button>
+            </div>
+            <div class="books" data-category="science"></div>
         </section>
 
         <section>
@@ -63,6 +98,18 @@
                             <p class="category-title">Детектив</p>
                             <p id="detective-output">Книга не выбрана</p>
                             <input type="hidden" id="detective-input" name="detective" value="">
+                        </div>
+
+                        <div id="children-block" hidden>
+                            <p class="category-title">Детские книги</p>
+                            <p id="children-output">Книга не выбрана</p>
+                            <input type="hidden" id="children-input" name="children" value="">
+                        </div>
+
+                        <div id="science-block" hidden>
+                            <p class="category-title">Научпоп</p>
+                            <p id="science-output">Книга не выбрана</p>
+                            <input type="hidden" id="science-input" name="science" value="">
                         </div>
 
                         <div id="total-output" class="total" hidden></div>
@@ -125,14 +172,14 @@
     </footer>
 
     <template id="book-template">
-    <div class="book-card">
-        <img src="" alt="">
-        <p class="price"></p>
-        <p class="title"></p>
-        <p class="pages"></p>
-        <button type="button">Добавить</button>
-    </div>
-</template>
+        <div class="book-card">
+            <img src="" alt="">
+            <p class="price"></p>
+            <p class="title"></p>
+            <p class="pages"></p>
+            <button type="button">Добавить</button>
+        </div>
+    </template>
 
     <script src="books.js"></script>
     <script src="render.js"></script>
