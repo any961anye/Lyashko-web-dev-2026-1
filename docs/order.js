@@ -12,7 +12,7 @@ function updateOrder() {
     let total = 0;
     let hasAny = false;
 
-    for (const category in selected) { 
+    for (const category in selected) {
         const book = selected[category];
 
         if (book) {
@@ -38,25 +38,51 @@ function updateOrder() {
     totalOutput.textContent = `Стоимость заказа: ${total} ₽`;
 }
 
-const buttons = document.querySelectorAll(".book-card button");
+function initInteractivity() {
+    const buttons = document.querySelectorAll(".book-card button");
 
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        const card = button.closest(".book-card");
-        const keyword = card.dataset.book;
-        const book = books.find(b => b.keyword === keyword);
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const card = button.closest(".book-card");
+            const keyword = card.dataset.book;
+            const book = books.find(b => b.keyword === keyword);
 
-        selected[book.category] = book;
+            selected[book.category] = book;
 
-        document.querySelectorAll(`.books[data-category="${book.category}"] .book-card.selected`)
-            .forEach(c => c.classList.remove("selected"));
-        card.classList.add("selected");
+            document.querySelectorAll(`.books[data-category="${book.category}"] .book-card.selected`)
+                .forEach(c => c.classList.remove("selected"));
+            card.classList.add("selected");
 
-        updateOrder();
+            updateOrder();
+        });
     });
-});
 
-updateOrder();
+    const filterButtons = document.querySelectorAll(".filters button");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const section = button.closest("section");
+            const kind = button.dataset.kind;
+            const cards = section.querySelectorAll(".book-card");
+            const wasActive = button.classList.contains("active");
+
+            section.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+
+            if (wasActive) {
+                cards.forEach(card => card.hidden = false);
+                return;
+            }
+
+            button.classList.add("active");
+
+            cards.forEach(card => {
+                card.hidden = card.dataset.kind !== kind;
+            });
+        });
+    });
+
+    updateOrder();
+}
 
 document.querySelector(".order-form").addEventListener("reset", () => {
     for (const category in selected) {
@@ -69,32 +95,6 @@ document.querySelector(".order-form").addEventListener("reset", () => {
     updateOrder();
 });
 
-const filterButtons = document.querySelectorAll(".filters button");
-
-filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const section = button.closest("section");
-        const kind = button.dataset.kind;
-        const cards = section.querySelectorAll(".book-card");
-        const wasActive = button.classList.contains("active");
-
-        section.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
-
-        if (wasActive) {
-            cards.forEach(card => card.hidden = false);
-            return;
-        }
-
-        button.classList.add("active");
-
-        cards.forEach(card => {
-            card.hidden = card.dataset.kind !== kind;
-        });
-    });
-});
-
-const orderForm = document.querySelector(".order-form");
-
 const validCombos = [
     ["roman", "fantasy", "detective", "children"],
     ["roman", "fantasy"],
@@ -103,7 +103,7 @@ const validCombos = [
     ["fantasy", "children"]
 ];
 
-orderForm.addEventListener("submit", (event) => {
+document.querySelector(".order-form").addEventListener("submit", (event) => {
     const chosen = [];
     for (const category in selected) {
         if (selected[category] && category !== "science") {
